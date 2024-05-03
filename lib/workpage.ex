@@ -4,21 +4,21 @@ defmodule WorkPage do
     #
     case work do
       "Edens Zero" ->
-        """
-        <a href='http://localhost:8000/chapts/Edens_Zero/100$20'>Capítulo 100</a><br>
-        """
+        gera_link(work, [{100, 20}])
       "One Piece" ->
-        """
-        <a href='http://localhost:8000/chapts/One_Piece/3$21'>Capítulo 3</a><br>
-        <a href='http://localhost:8000/chapts/One_Piece/4$20'>Capítulo 4</a><br>
-        <a href='http://localhost:8000/chapts/One_Piece/1000$14'>Capítulo 1000</a><br>
-        """
+        gera_link(work, [{3, 21}, {4, 20}, {1000, 14}])
       _ ->
         """
         <h2> Nenhum Capitulo Encontrado!</h2>
         """
       end
 
+  end
+  @link "<a href='http://localhost:8000/chapts/"
+
+  defp gera_link(_work, []), do: ""
+  defp gera_link(work, [{cap, pag} | resto]) do
+    @link <> "#{String.replace(work, " ", "_")}/#{cap}$#{pag}'>Capítulo #{cap}</a><br>" <> gera_link(work, resto)
   end
 
   def create_work (work) do
