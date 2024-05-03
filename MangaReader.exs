@@ -55,7 +55,7 @@ defmodule Http do
     "<title>Olá Elixir</title>",
     "</head>",
     "<body>",
-    "<h1>Mangá Reader Elixir - Version 0.4<\h1>",
+    "<h1>Mangá Reader Elixir - Version 0.4.1 - Git<\h1>",
     "<a href='http://localhost:8000/work/Dragon_Ball'>Dragon Ball</a><br>",
     "<a href='http://localhost:8000/work/Edens_Zero'>Edens Zero</a><br>",
     "<a href='http://localhost:8000/work/One_Piece'>One Piece</a><br>",
