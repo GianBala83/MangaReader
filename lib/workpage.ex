@@ -40,11 +40,10 @@ defmodule WorkPage do
   def create_work(work, id) do
 
     work = String.replace(work, "_", " ")
-    #chapt = ""
     chapt = chat_refs(work)
     infos = get_api_information(id)
+    text = Tradutor.traduzir_partes(Texto.texto_limite(infos["synopsis"]))
 
-    IO.puts infos[":synopsis"]
 
     [ '<!DOCTYPE html>',
       '<html lang="en">',
@@ -72,10 +71,11 @@ defmodule WorkPage do
       '<body>',
       '<h1>#{work}</h1>',
       '<img src=#{infos["capa"]}> </img>',
-      '<h2>#{infos["synopsis"]}</h2>',
+      '<h2>#{text}</h2>',
       '#{chapt}',
       '</body>',
       '</html>' ]
 
   end
+
 end

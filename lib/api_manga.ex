@@ -18,7 +18,6 @@ defmodule API_Manga do
     api_map["data"]
 	end
 
-
 	def information_process ({:ok, %HTTPoison.Response{ status_code: 200, body: b}}) do
     {:ok, b}
 	end

@@ -23,6 +23,7 @@ defmodule Mangareader.MixProject do
     [
       {:httpoison, "~> 2.1"},
 	    {:poison, "~> 5.0"},
+      {:jason, "~> 1.3"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
   end
