@@ -51,9 +51,9 @@ defmodule Http do
   def resposta({"GET", "/chapts/" <> file}) do
     [path | len] = String.split(file, "$")
     IO.puts len
-    IO.puts path
+    path = "C:/Users/ZenoAoi/Desktop/WorkSpace/Elixir 2/Data/chapts/" <> path <> "/"
     len = String.to_integer(hd(len))
-    resp200(MangaPage.create_manga_page("chapts/" <> path <> "/", path, len))
+    resp200(MangaPage.create_manga_page(path, path, len))
   end
   def resposta({"GET", "/work/" <> work}) do
     resp200(WorkPage.create_work(work))
