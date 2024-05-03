@@ -12,22 +12,26 @@ defmodule Socket do
     :gen_tcp.close(socket)
   end
 
-  def recebe_conexao(socket)do
-    # Aceitar Conexão
-    {:ok, client} = :gen_tcp.accept(socket)
-
-    # Receber o Request
-    {:ok, pacote} = :gen_tcp.recv(client, 0)
-
-    # Enviar a Respost
-    resposta = Http.gera_resposta(pacote)
-    :gen_tcp.send(client, resposta)
-
-    # fechar Conexão
-    :gen_tcp.close(client)
-
-    # Loop Para Conxeão
-    recebe_conexao(socket)
+  def recebe_conexao(socket) do
+    case :gen_tcp.accept(socket) do
+      {:ok, client} ->
+        case :gen_tcp.recv(client, 0) do
+          {:ok, pacote} ->
+            resposta = Http.gera_resposta(pacote)
+            :gen_tcp.send(client, resposta)
+            :gen_tcp.close(client)
+            recebe_conexao(socket)
+          {:error, :closed} ->
+            IO.puts "Conexão fechada pelo cliente"
+            recebe_conexao(socket)
+          _ ->
+            IO.puts "Erro desconhecido"
+            recebe_conexao(socket)
+        end
+      _ ->
+        IO.puts "Erro ao aceitar a conexão"
+        recebe_conexao(socket)
+    end
   end
 
 end
