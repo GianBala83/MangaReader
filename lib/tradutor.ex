@@ -1,7 +1,7 @@
 defmodule Tradutor do
   defp traduzir(texto) do
     url = "https://api.mymemory.translated.net/get"
-    corpo = %{q: texto, langpair: "en|pt"} |> URI.encode_query()
+    corpo = %{q: texto, langpair: "en|pt", de: "dodesertogaara726@gmail.com"} |> URI.encode_query()
     url_com_parametros = "#{url}?#{corpo}"
 
     case HTTPoison.get(url_com_parametros) do

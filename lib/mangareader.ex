@@ -5,15 +5,14 @@ defmodule Mangareader do
   end
 
   def test do
-    #Use essa função para testar o retorno de outras funções...
-    IO.puts "Use essa função para testar o retorno de outras funções...\n\n\n"
-
-    #API_Manga.request(13)
-    x = Information.get_file_infomation("One_Piece")
-    IO.puts x["title"]
-    IO.puts x["id"]
-    IO.inspect(x["chapts"])
+    # Funções de test
     nil
+  end
+
+  def test_api_return do
+    # Use isso para testar o retorno Api
+    x = API_Manga.request(13)
+    IO.inspect(x)
   end
 
 end
