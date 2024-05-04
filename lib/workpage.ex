@@ -34,6 +34,7 @@ defmodule WorkPage do
   end
 
   defp gera_link(_work, []), do: ""
+  defp gera_link(_work, nil), do: ""
   defp gera_link(work, [[cap, pag] | resto]) do
     @link <> "#{String.replace(work, " ", "_")}/#{cap}$#{pag}'>Capítulo #{cap}</a>" <> gera_link(work, resto)
   end

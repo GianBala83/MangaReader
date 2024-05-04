@@ -7,11 +7,28 @@ defmodule MangaPage do
   end
 
   def generate_chapt(l2, path, pgs, len) when pgs <= len do
-    path_n = path <> "#{pgs}.jpg"
-    l2 = l2 ++ [reader_file(path_n)]
-    generate_chapt(l2, path, pgs+1, len)
+    pgs_string = Integer.to_string(pgs) |> String.pad_leading(3, "0")
+    path_jpg = path <> "#{pgs_string}.jpg"
+    path_png = path <> "#{pgs_string}.png"
+    path_webp = path <> "#{pgs_string}.webp"
+
+    image_path =
+      cond do
+        File.exists?(path_jpg) -> path_jpg
+        File.exists?(path_png) -> path_png
+        File.exists?(path_webp) -> path_webp
+        true -> nil
+      end
+
+    case image_path do
+      nil -> {:error, "No image found for page #{pgs_string}"}
+      _ ->
+        l2 = l2 ++ [reader_file(image_path)]
+        generate_chapt(l2, path, pgs+1, len)
+    end
   end
   def generate_chapt(l2, _, pgs, len) when pgs > len, do: l2
+
 
 
   def create_manga_page(path, t, len) do

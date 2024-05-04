@@ -12,6 +12,7 @@ defmodule Socket do
     :gen_tcp.close(socket)
   end
 
+  @spec recebe_conexao(port() | {:"$inet", atom(), any()}) :: no_return()
   def recebe_conexao(socket) do
     case :gen_tcp.accept(socket) do
       {:ok, client} ->

@@ -18,7 +18,7 @@ defmodule API_Manga do
 	end
 
 	def information_process ({:ok, %HTTPoison.Response{ status_code: _, body: b}}) do
-    {:erro, b}
+    {:error, b}
 	end
 
 end
