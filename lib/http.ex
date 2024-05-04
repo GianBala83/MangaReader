@@ -56,7 +56,8 @@ defmodule Http do
     #IO.puts len
     title = String.replace(path, "_", " ")
     title = String.replace(title, "/", " Capítulo ")
-    path = "C:/Users/ZenoAoi/Desktop/WorkSpace/Elixir 2/Data/chapts/" <> path <> "/"
+    data_path = Information.get_data_path()
+    path = data_path <> "chapts/" <> path <> "/"
     len = String.to_integer(hd(len))
     resp200(MangaPage.create_manga_page(path, title, len))
   end
