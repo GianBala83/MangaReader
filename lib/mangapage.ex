@@ -21,7 +21,7 @@ defmodule MangaPage do
       end
 
     case image_path do
-      nil -> {:error, "No image found for page #{pgs_string}"}
+      nil -> generate_chapt(l2, path, pgs+1, len)
       _ ->
         l2 = l2 ++ [reader_file(image_path)]
         generate_chapt(l2, path, pgs+1, len)
@@ -31,9 +31,10 @@ defmodule MangaPage do
 
 
 
-  def create_manga_page(path, t, len) do
+  def create_manga_page(path, t) do
     # Retorna a Página Html
     title = t
+    { :ok, len } = Information.count_files_in_directory(path)
     l2 = []
     l2 = generate_chapt(l2, path, 1, len)
 

@@ -52,14 +52,13 @@ defmodule Http do
 
   # Pagina dos capítulos
   def resposta({"GET", "/chapts/" <> file}) do
-    [path | len] = String.split(file, "$")
+    path = hd(String.split(file, "$"))
     #IO.puts len
     title = String.replace(path, "_", " ")
     title = String.replace(title, "/", " Capítulo ")
     data_path = Information.get_data_path()
     path = data_path <> "chapts/" <> path <> "/"
-    len = String.to_integer(hd(len))
-    resp200(MangaPage.create_manga_page(path, title, len))
+    resp200(MangaPage.create_manga_page(path, title))
   end
 
   # Pagina dos Titulos
