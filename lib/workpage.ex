@@ -2,9 +2,9 @@ defmodule WorkPage do
   @link "<a href='http://localhost:8000/chapts/"
 
   def get_genres(str, []), do: str
-  def get_genres(str,lista) do
+  def get_genres(str, lista) do
     ele = hd(lista)
-    str <> ele["name"] <> "/"
+    str = str <> ele["name"] <> "/"
     get_genres(str, tl(lista))
   end
 
@@ -16,6 +16,7 @@ defmodule WorkPage do
     au = hd(j_dir["authors"])
     au = au["name"]
     gens = get_genres("", j_dir["genres"])
+    IO.puts gens
 
     #IO.puts j_dir["synopsis"]
     %{"capa" => img_j["large_image_url"],
