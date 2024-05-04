@@ -21,9 +21,9 @@ defmodule Http do
     "</head>",
     "<body>",
     "<h1>Mangá Reader Elixir - Version 0.4<\h1>",
-    "<a href='http://localhost:8000/work/Dragon_Ball$42'>Dragon Ball</a><br>",
-    "<a href='http://localhost:8000/work/Edens_Zero$114548'>Edens Zero</a><br>",
-    "<a href='http://localhost:8000/work/One_Piece$13'>One Piece</a><br>",
+    "<a href='http://localhost:8000/work/Dragon_Ball'>Dragon Ball</a><br>",
+    "<a href='http://localhost:8000/work/Edens_Zero'>Edens Zero</a><br>",
+    "<a href='http://localhost:8000/work/One_Piece'>One Piece</a><br>",
     "</body>",
     "</html>"
   ]
@@ -51,14 +51,12 @@ defmodule Http do
   def resposta({"GET", "/chapts/" <> file}) do
     [path | len] = String.split(file, "$")
     #IO.puts len
-    path = "C:/Users/costa/Downloads/Data/Data/chapts/" <> path <> "/"
+    path = "C:/Users/ZenoAoi/Desktop/WorkSpace/Elixir 2/Data/chapts/" <> path <> "/"
     len = String.to_integer(hd(len))
     resp200(MangaPage.create_manga_page(path, path, len))
   end
   def resposta({"GET", "/work/" <> work}) do
-    [work | id] = String.split(work, "$")
-    id = String.to_integer(hd(id))
-    resp200(WorkPage.create_work(work, id))
+    resp200(WorkPage.create_work(work))
   end
   def resposta(_), do: resp404(@page404)
 

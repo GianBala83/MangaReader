@@ -11,7 +11,7 @@ defmodule MangaPage do
     l2 = l2 ++ [reader_file(path_n)]
     generate_chapt(l2, path, pgs+1, len)
   end
-  def generate_chapt(l2, _, pgs, len) when pgs > len, do: l2
+  def generate_chapt(l2, path, pgs, len) when pgs > len, do: l2
 
 
   def create_manga_page(path, t, len) do

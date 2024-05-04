@@ -1,25 +1,15 @@
 defmodule WorkPage do
   @link "<a href='http://localhost:8000/chapts/"
 
-  def chat_refs(work) do
-    # Aqui a gente precisa buscar quais capitulos estão disponiveis em algum lugar
-    #
-    case work do
-      "Edens Zero" ->
-        gera_link(work, [{100, 20}])
-      "One Piece" ->
-        gera_link(work, [{3, 21}, {4, 20}, {1000, 14}])
-      _ ->
-        """
-        <h2> Nenhum Capitulo Encontrado!</h2>
-        """
-      end
+  def chat_refs([]), do: ""
 
+  def chat_refs(work, chapts) do
+    gera_link(work, chapts)
   end
 
   defp gera_link(_work, []), do: ""
 
-  defp gera_link(work, [{cap, pag} | resto]) do
+  defp gera_link(work, [[cap, pag] | resto]) do
     @link <> "#{String.replace(work, " ", "_")}/#{cap}$#{pag}'>Capítulo #{cap}</a><br>" <> gera_link(work, resto)
   end
 
@@ -37,13 +27,16 @@ defmodule WorkPage do
 
   end
 
-  def create_work(work, id) do
+  def create_work(work) do
 
-    work = String.replace(work, "_", " ")
-    chapt = chat_refs(work)
+    work_new = String.replace(work, "_", " ")
+    local_infos = Information.get_file_infomation(work)
+
+    id = local_infos["id"]
+    chapts = local_infos["chapts"]
+    chapt_string = chat_refs(work_new, chapts)
     infos = get_api_information(id)
     text = Tradutor.traduzir_partes(Texto.texto_limite(infos["synopsis"]))
-
 
     [ '<!DOCTYPE html>',
       '<html lang="en">',
@@ -72,10 +65,9 @@ defmodule WorkPage do
       '<h1>#{work}</h1>',
       '<img src=#{infos["capa"]}> </img>',
       '<h2>#{text}</h2>',
-      '#{chapt}',
+      '#{chapt_string}',
       '</body>',
       '</html>' ]
 
   end
-
 end
