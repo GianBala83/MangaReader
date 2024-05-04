@@ -34,7 +34,7 @@ defmodule WorkPage do
 
   defp gera_link(_work, []), do: ""
   defp gera_link(work, [[cap, pag] | resto]) do
-    @link <> "#{String.replace(work, " ", "_")}/#{cap}$#{pag}'>Capítulo #{cap}</a><br>" <> gera_link(work, resto)
+    @link <> "#{String.replace(work, " ", "_")}/#{cap}$#{pag}'>Capítulo #{cap}</a>" <> gera_link(work, resto)
   end
 
   def create_work(work) do
@@ -57,7 +57,6 @@ defmodule WorkPage do
 
     #text = Tradutor.traduzir_partes(Texto.texto_limite(infos["synopsis"]))
 
-
     # ! HTML !
     [
       '<!DOCTYPE html>',
@@ -68,23 +67,32 @@ defmodule WorkPage do
       '<style>',
 
       'a {',
-      'color: white',
-      'border: 4px solid white;',
+        'font-size: 22pt;',
+        'color: white;',
+        'visited: white;',
+        'font-weight: bold;',
+        'text-decoration:none;',
       '}',
 
       'body {',
-      'font-family:Segoe Print;',
-      'color: white;',
-      'background-color:black;',
+        'font-family:Segoe Print;',
+        'color: white;',
+        'background-color:black;',
       '}',
 
       'h1 {',
-      'font-family:Arial;',
-      'font-size: 36pt;',
-      'color: white;',
-      'text-align: center;',
+        'font-family:Arial;',
+        'font-size: 36pt;',
+        'color: white;',
+        'text-align: center;',
       '}',
 
+
+      """
+      h3 {
+        'border: 4px solid white;',
+      }
+      """,
 
       """
       #maininfo {
@@ -132,13 +140,8 @@ defmodule WorkPage do
         width:600px;
         height:650px;
         margin-left: 2%;
-        border: 8px solid grey;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: scroll;
-        overflow-x: hidden';
-        overflow-y: hidden';
+        border: 8px solid white;
+        display: grid;
       }
       """,
 

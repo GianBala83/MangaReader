@@ -1,0 +1,17 @@
+{
+    "Dragon_Ball":{
+        "title":"Dragon Ball",
+        "id":42,
+        "chapts":[]
+    },
+    "Edens_Zero":{
+        "title":"Edens Zero",
+        "id":114548,
+        "chapts":[[100,20]]
+    },
+    "One_Piece":{
+        "title":"One Piece",
+        "id":13,
+        "chapts":[[3,21],[4,20],[1000,14]]
+    }
+}

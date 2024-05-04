@@ -9,6 +9,11 @@ defmodule Mangareader do
     nil
   end
 
+  def test_1 do
+    x = Information.get_title_infomation()
+    IO.inspect(x)
+  end
+
   def test_api_return do
     # Use isso para testar o retorno Api
     x = API_Manga.request(13)

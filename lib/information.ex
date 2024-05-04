@@ -8,7 +8,7 @@ defmodule Information do
   end
 
   def get_title_infomation do
-    path = "C:/Users/ZenoAoi/Desktop/WorkSpace/Elixir 2/Data/title.json"
+    path = "C:/Users/ZenoAoi/Desktop/WorkSpace/Elixir 2/Data/titles.json"
     {:ok, bits} = File.read(path)
     {:ok, json_map} = Poison.decode(bits)
     json_map

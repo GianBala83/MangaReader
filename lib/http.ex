@@ -1,44 +1,11 @@
 defmodule Http do
-  @index [
-    "<!DOCTYPE html>",
-    "<html>",
-    "<head>",
-    '<style>',
-    'body {',
-    'font-family:Arial;',
-    'color: white;',
-    'background-color:black;',
-    '}',
-    'h1 {',
-    'font-family:Segoe Print;',
-    'font-size: 36pt;',
-    'color: white;',
-    'text-align: center;',
-    '}',
-    '</style>',
-    '<meta charset="utf-8"/>',
-    "<title>Olá Elixir</title>",
-    "</head>",
-    "<body>",
-    "<h1>Mangá Reader Elixir - Version 0.4<\h1>",
-    "<a href='http://localhost:8000/work/Dragon_Ball'>Dragon Ball</a><br>",
-    "<a href='http://localhost:8000/work/Edens_Zero'>Edens Zero</a><br>",
-    "<a href='http://localhost:8000/work/One_Piece'>One Piece</a><br>",
-    "</body>",
-    "</html>"
-  ]
-  @page404 [
-    "<!DOCTYPE html>",
-    "<html>",
-    "<head>",
-    '<meta charset="utf-8"/>',
-    "<title>Not Found</title>",
-    "</head>",
-    "<body>",
-    "<hi>404 - Not Found<\h1>",
-    "</body>",
-    "</html>"
-  ]
+
+  def get_tiltes(str, []), do: str
+  def get_tiltes(str, data) do
+    title_current = hd(data)
+    str = str <> "<a href='http://localhost:8000/work/" <> title_current <> "'>" <> title_current <> "</a><br>"
+    get_tiltes(str, tl(data))
+  end
 
   def gera_resposta (pacote) do
     analisa_req(pacote)
@@ -47,18 +14,74 @@ defmodule Http do
     #formata_resposta(@index)
   end
 
-  def resposta({"GET", "/"}), do: resp200(@index)
+  # Pagina Inicial
+  def resposta({"GET", "/"}) do
+    data = Information.get_title_infomation()
+    titles = get_tiltes("", data)
+    IO.puts titles
+    index = [
+      "<!DOCTYPE html>",
+      "<html>",
+      "<head>",
+      '<style>',
+      'body {',
+      'font-family:Arial;',
+      'color: white;',
+      'background-color:black;',
+      '}',
+      'h1 {',
+      'font-family:Segoe Print;',
+      'font-size: 36pt;',
+      'color: white;',
+      'text-align: center;',
+      '}',
+      '</style>',
+      '<meta charset="utf-8"/>',
+      "<title>Mangá Reader Elixir</title>",
+      "</head>",
+      "<body>",
+      "<h1>Mangá Reader Elixir - Version 0.8<\h1>",
+      "<div>",
+      "#{titles}",
+      "<div>",
+      "</body>",
+      "</html>"
+    ]
+    resp200(index)
+  end
+
+  # Pagina dos capítulos
   def resposta({"GET", "/chapts/" <> file}) do
     [path | len] = String.split(file, "$")
     #IO.puts len
+    title = String.replace(path, "_", " ")
+    title = String.replace(title, "/", " Capítulo ")
     path = "C:/Users/ZenoAoi/Desktop/WorkSpace/Elixir 2/Data/chapts/" <> path <> "/"
     len = String.to_integer(hd(len))
-    resp200(MangaPage.create_manga_page(path, path, len))
+    resp200(MangaPage.create_manga_page(path, title, len))
   end
+
+  # Pagina dos Titulos
   def resposta({"GET", "/work/" <> work}) do
     resp200(WorkPage.create_work(work))
   end
-  def resposta(_), do: resp404(@page404)
+
+  # Pagina 404
+  def resposta(_) do
+    page404 = [
+      "<!DOCTYPE html>",
+      "<html>",
+      "<head>",
+      '<meta charset="utf-8"/>',
+      "<title>Not Found</title>",
+      "</head>",
+      "<body>",
+      "<hi>404 - Not Found<\h1>",
+      "</body>",
+      "</html>"
+    ]
+    resp404(page404)
+  end
 
 
   @spec resp200(any()) :: {200, <<_::16>>, any()}
