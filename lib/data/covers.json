@@ -10,5 +10,49 @@
     {
         "url_image":"https://cdn.myanimelist.net/images/manga/2/253146l.jpg",
         "path":"One_Piece"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/3/188949.jpg",
+        "path":"Re_Zero"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/3/258224.jpg",
+        "path":"Monster"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/1/262324.jpg",
+        "path":"Nana"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/2/188925.jpg",
+        "path":"Vinland_Saga"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/2/171872.jpg",
+        "path":"Kingdom"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/3/80661.jpg",
+        "path":"One_Punch_Man"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/3/232121.jpg",
+        "path":"Sousou_no_Frieren"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/3/118031.jpg",
+        "path":"Pokemon"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/1/258245.jpg",
+        "path":"Death_Note"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/3/210341.jpg",
+        "path":"Jujutsu_Kaisen"
+    },
+    {
+        "url_image":"https://cdn.myanimelist.net/images/manga/1/157897.jpg",
+        "path":"Berserk"
     }
 ]

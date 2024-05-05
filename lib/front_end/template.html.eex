@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Reader</title>
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo do corpo */
+        body {
+            font-family: Arial, sans-serif; /* Defina a fonte desejada */
+            background-color: #f0f0f0; /* Cor de fundo do corpo */
+            padding: 20px; /* Espaçamento interno do corpo */
+        }
+
+        /* Estilo do cabeçalho */
+        header {
+            text-align: center; /* Centraliza o texto */
+            margin-bottom: 20px; /* Espaçamento inferior */
+        }
+
+        /* Estilo do título */
+        h1 {
+            color: #333; /* Cor do texto */
+            font-size: 36px; /* Tamanho da fonte */
+            margin-bottom: 10px; /* Espaçamento inferior */
+        }
+
+        /* Estilo da tabela */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff; /* Cor de fundo da tabela */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1.0); /* Sombra suave */
+        }
+
+        /* Estilo das células da tabela */
+        th, td {
+            padding: 15px; /* Espaçamento interno */
+            text-align: center;
+        }
+
+        /* Estilo das capas dos mangás */
+        .imagem {
+            width: 150px; /* Largura das capas */
+            height: auto; /* Mantém a proporção */
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px; /* Borda arredondada */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 1.6); /* Sombra suave */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        /* Estilo das capas dos mangás ao passar o mouse */
+        .imagem:hover {
+            transform: scale(1.45); /* Aumenta o tamanho ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+
+<table>
+    <tr>
+        <%= title_image %>
+    </tr>
+    <%= mangas %>
+</table>
+
+</body>
+</html>

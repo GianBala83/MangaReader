@@ -1,0 +1,12 @@
+<tr>
+<%= for {elemento, index} <- Enum.with_index(@list) do %>
+    <td>
+        <a href = "http://localhost:8000/work/<%= elemento["path"] %>">
+            <img src="<%= elemento["url_image"] %>" class = "imagem">
+        </a>
+    </td>
+    <%= if rem(index + 1, 7) == 0 do %>
+    </tr><tr>
+    <% end %>
+<% end %>
+</tr>
