@@ -5,33 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family:Segoe Print;
-      color: white;
-      background-color:black;
+      font-family: Arial;
+      color: black;
+      background-color: white;
     }
+
+    /* Estilos para o modo escuro */
+    body.dark-mode {
+      background-color: black;
+      color: #fff;
+    }
+
     h1 {
-      font-family:Segoe Print;
       font-size: 36pt;
-      color: white;
       text-align: center;
+    }
+
+    /* Estilos para o título no modo escuro */
+    body.dark-mode h1 {
+      color: #fff; /* Altera a cor do título para branco */
     }
 
     img {
       max-width: 700px;
       max-height: auto;
-      align-center;
+      display: block;
+      margin: 0 auto; /* Centralizar a imagem */
     }
-    .image-container {
-      margin: 0 auto;
-      align-center;
-    }
-
   </style>
   <title><%= title %></title>
 </head>
-<body>
-    <h1><%= title %></h1>
-  <%= Enum.map(images, fn img -> %>
-    <%= img %>
-  <% end) %>
+<body id="body">
+  <!-- Botão para alternar entre os modos claro e escuro -->
+  <button onclick="toggleDarkMode()">Alternar Modo</button>
+
+  <h1><%= title %></h1>
+  <div class="image-container">
+    <%= Enum.map(images, fn img -> %>
+      <%= img %>
+    <% end) %>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      // Obtém o elemento body
+      var body = document.getElementById("body");
+
+      // Alterna entre as classes de estilo claro e escuro
+      body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
+</html>

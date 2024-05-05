@@ -49,11 +49,13 @@ defmodule WorkPage do
 
     title = infos["title"]
     text = infos["synopsis"]
+    |> Texto.texto_limite
+    |> Tradutor.traduzir_partes
     nota = infos["nota"]
     autor = infos["autor"]
     generos = infos["generos"]
     capa = infos["capa"]
-    text = Tradutor.traduzir_partes(Texto.texto_limite(text))
+
 
     assigns = [
       title: title,
