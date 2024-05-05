@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family:Arial;
+      font-family:Segoe Print;
       color: white;
-      background-color:grey;
+      background-color:black;
     }
     h1 {
-      font-family:Arial;
+      font-family:Segoe Print;
       font-size: 36pt;
       color: white;
       text-align: center;

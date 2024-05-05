@@ -16,9 +16,7 @@ defmodule WorkPage do
     au = hd(j_dir["authors"])
     au = au["name"]
     gens = get_genres("", j_dir["genres"])
-    IO.puts gens
 
-    #IO.puts j_dir["synopsis"]
     %{"capa" => img_j["large_image_url"],
       "title" => j_dir["title"],
       "synopsis" => j_dir["synopsis"],
@@ -55,6 +53,7 @@ defmodule WorkPage do
     autor = infos["autor"]
     generos = infos["generos"]
     capa = infos["capa"]
+    text = Tradutor.traduzir_partes(Texto.texto_limite(text))
 
     assigns = [
       title: title,

@@ -1,6 +1,6 @@
 defmodule Mangareader do
   def main do
-    IO.puts "Manga Reader - Version 0.4"
+    IO.puts "Manga Reader - Version 1.0"
     Socket.servidor(8000)
   end
 

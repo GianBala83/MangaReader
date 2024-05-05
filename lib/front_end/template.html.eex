@@ -14,9 +14,11 @@
 
         /* Estilo do corpo */
         body {
-            font-family: Arial, sans-serif; /* Defina a fonte desejada */
-            background-color: #f0f0f0; /* Cor de fundo do corpo */
+            font-family: Segoe Print, sans-serif; /* Defina a fonte desejada */
             padding: 20px; /* Espaçamento interno do corpo */
+            background-size: cover; /* Redimensiona a imagem para cobrir todo o fundo */
+            background-repeat: no-repeat; /* Evita a repetição da imagem */
+            background-position: center center; /* Centraliza a imagem horizontal e verticalmente */
         }
 
         /* Estilo do cabeçalho */
@@ -63,10 +65,9 @@
         }
     </style>
 </head>
-<body>
+<body style = "background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/7209994-fundo-abstrato-tecnologia-moderna-banner-digital-pano-de-fundo-capa-modelo-grafico-papel-de-parede-gratis-foto.jpg');">
 
-
-<table>
+<table style = "background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/7209994-fundo-abstrato-tecnologia-moderna-banner-digital-pano-de-fundo-capa-modelo-grafico-papel-de-parede-gratis-foto.jpg');">
     <tr>
         <%= title_image %>
     </tr>

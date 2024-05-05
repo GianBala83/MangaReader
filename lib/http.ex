@@ -14,7 +14,6 @@ defmodule Http do
     analisa_req(pacote)
     |> resposta
     |> formata_resposta
-    #formata_resposta(@index)
   end
 
   # Pagina Inicial
@@ -32,7 +31,6 @@ defmodule Http do
   # Pagina dos capítulos
   def resposta({"GET", "/chapts/" <> file}) do
     path = hd(String.split(file, "$"))
-    #IO.puts len
     title = String.replace(path, "_", " ")
     title = String.replace(title, "/", " Capítulo ")
     data_path = Information.get_data_path()
