@@ -7,6 +7,13 @@ defmodule Information do
     json_map[title]
   end
 
+  def get_cover_infomation do
+    path = "lib/Data/covers.json"
+    {:ok, bits} = File.read(path)
+    {:ok, json_map} = Poison.decode(bits)
+    json_map
+  end
+
   def get_title_infomation do
     path = "lib/data/titles.json"
     {:ok, bits} = File.read(path)
