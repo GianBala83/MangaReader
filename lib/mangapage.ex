@@ -3,7 +3,7 @@ defmodule MangaPage do
   def reader_file(path) do
     {:ok, img} = File.read(path)
     imagem_base64 = Base.encode64(img)
-    "<td> <center> <img src='data:image/jpeg;charset=utf-8;base64,#{imagem_base64}'></img>"
+    "<div class='image-container'><center><img src='data:image/jpeg;charset=utf-8;base64,#{imagem_base64}'></div>"
   end
 
   def generate_chapt(path, len) do

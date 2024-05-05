@@ -7,7 +7,7 @@
     body {
       font-family:Arial;
       color: white;
-      background-color:black;
+      background-color:grey;
     }
     h1 {
       font-family:Arial;
@@ -15,6 +15,17 @@
       color: white;
       text-align: center;
     }
+
+    img {
+      max-width: 700px;
+      max-height: auto;
+      align-center;
+    }
+    .image-container {
+      margin: 0 auto;
+      align-center;
+    }
+
   </style>
   <title><%= title %></title>
 </head>
@@ -24,41 +35,3 @@
     <%= img %>
   <% end) %>
 </body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family:Arial;
-      color: white;
-      background-color:black;
-    }
-    h1 {
-      font-family:Arial;
-      font-size: 36pt;
-      color: white;
-      text-align: center;
-    }
-    .image-container {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .image-container img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
-  <title><%= title %></title>
-</head>
-<body>
-  <h1><%= title %></h1>
-  <div class="image-container">
-    <%= Enum.map(images, fn img -> %>
-    <div class="image-container">
-      <%= img %>
-    <% end) %>
-  </div>
-</body>
-</html>
