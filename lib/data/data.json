@@ -1,0 +1,73 @@
+{
+    "Dragon_Ball":{
+        "title":"Dragon Ball",
+        "id":42,
+        "chapts":[1,2,3,317,415,516]
+    },
+    "Edens_Zero":{
+        "title":"Edens Zero",
+        "id":114548,
+        "chapts":[1,2,3,100]
+    },
+    "One_Piece":{
+        "title":"One Piece",
+        "id":13,
+        "chapts":[1,2,3,4,216,398,485,576,967,1000,1044]
+    },
+    "Re_Zero":{
+        "title":"Re:Zero",
+        "id":74695,
+        "chapts":[1,2,3]
+    },
+    "Monster":{
+        "title":"Monster",
+        "id":1,
+        "chapts":[1,2,3]
+    },
+    "Nana":{
+        "title":"Nana",
+        "id":28,
+        "chapts":[1,2,3]
+    },
+    "Vinland_Saga":{
+        "title":"Vinland Saga",
+        "id":642,
+        "chapts":[1,2,3]
+    },
+    "Kingdom":{
+        "title":"Kingdom",
+        "id":16765,
+        "chapts":[1,2,3]
+    },
+    "One_Punch_Man":{
+        "title":"One Punch Man",
+        "id":44347,
+        "chapts":[1,2,3,167]
+    },
+    "Sousou_no_Frieren":{
+        "title":"Sousou no Frieren",
+        "id":126287,
+        "chapts":[1,2,3]
+    },
+    "Pokemon":{
+        "title":"Pokemon",
+        "id":7857,
+        "chapts":[1,2,3]
+    },
+    "Death_Note":{
+        "title":"Death Note",
+        "id":21,
+        "chapts":[1,2,3]
+    },
+    "Jujutsu_Kaisen":{
+        "title":"Jujutsu Kaisen",
+        "id":113138,
+        "chapts":[1,2,3]
+    },
+    "Berserk":{
+        "title":"Berserk",
+        "id":2,
+        "chapts":[1,2,3]
+    }
+
+}
