@@ -6,14 +6,14 @@
   <style>
     body {
       font-family: Arial;
-      color: black;
-      background-color: white;
+      color: white;
+      background-color: black;
     }
 
     /* Estilos para o modo escuro */
-    body.dark-mode {
-      background-color: black;
-      color: #fff;
+    body.light-mode {
+      background-color: white;
+      color: black;
     }
 
     h1 {
@@ -22,8 +22,8 @@
     }
 
     /* Estilos para o título no modo escuro */
-    body.dark-mode h1 {
-      color: #fff; /* Altera a cor do título para branco */
+    body.light-mode h1 {
+      color: black; /* Altera a cor do título para branco */
     }
 
     img {
@@ -52,7 +52,7 @@
       var body = document.getElementById("body");
 
       // Alterna entre as classes de estilo claro e escuro
-      body.classList.toggle("dark-mode");
+      body.classList.toggle("light-mode");
     }
   </script>
 </body>
