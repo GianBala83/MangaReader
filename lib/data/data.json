@@ -2,7 +2,7 @@
     "Dragon_Ball":{
         "title":"Dragon Ball",
         "id":42,
-        "chapts":[1,2,3]
+        "chapts":[1,2,3,317,415,516]
     },
     "Edens_Zero":{
         "title":"Edens Zero",
@@ -12,7 +12,7 @@
     "One_Piece":{
         "title":"One Piece",
         "id":13,
-        "chapts":[1,2,3,4,1000]
+        "chapts":[1,2,3,4,216,398,485,576,967,1000,1044]
     },
     "Re_Zero":{
         "title":"Re:Zero",
@@ -42,7 +42,7 @@
     "One_Punch_Man":{
         "title":"One Punch Man",
         "id":44347,
-        "chapts":[1,2,3]
+        "chapts":[1,2,3,167]
     },
     "Sousou_no_Frieren":{
         "title":"Sousou no Frieren",
